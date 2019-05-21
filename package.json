@@ -8,6 +8,9 @@
 	"engines": {
 		"vscode": "^1.33.0"
 	},
+	"repository": {
+		"url": "https://github.com/zytjs/classNameToCss"
+	},
 	"categories": [
 		"Programming Languages",
 		"Other"

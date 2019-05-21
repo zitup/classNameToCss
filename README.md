@@ -4,7 +4,7 @@
 
 A Visual Studio Code extension that provides HTML class name completion for the CSS  based on the definitions found in the same directory.
 
-![](https://i.imgur.com/GyIfjgA.gif)  
+![](https://raw.githubusercontent.com/zytjs/classNameToCss/master/classtocss.gif)  
 
 # Feature
 
@@ -26,6 +26,6 @@ A Visual Studio Code extension that provides HTML class name completion for the 
 
 This extension is very very easy to use, there just one step to improve your development efficiency：
 
-* 搜索、安装、享受，然后向给你的同事炫耀
+* 搜索、安装、享受，然后与你的同事分享
   
-* Search, Install, Enjoy and Show off to your colleague
+* Search, Install, Enjoy and Share with your colleague
