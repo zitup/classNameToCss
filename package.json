@@ -3,7 +3,7 @@
 	"displayName": "className To Css",
 	"description": "css/less/scss intelliSense from html/jsx/tsx className",
 	"publisher": "zitup",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"icon": "icon.jpg",
 	"engines": {
 		"vscode": "^1.33.0"
@@ -19,9 +19,14 @@
 		"autocomplete",
 		"class",
 		"css",
+		"less",
+		"sass",
+		"scss",
+		"stylus",
 		"html",
 		"jsx",
 		"tsx",
+		"vue",
 		"classtocss",
 		"class to css",
 		"classnametocss",
@@ -30,9 +35,36 @@
 	"activationEvents": [
 		"onLanguage:css",
 		"onLanguage:less",
-		"onLanguage:scss"
+		"onLanguage:scss",
+		"onLanguage:sass",
+		"onLanguage:stylus",
+		"onLanguage:vue"
 	],
 	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "vue",
+				"aliases": [
+					"Vue",
+					"vue"
+				],
+				"extensions": [
+					".vue"
+				]
+			},
+			{
+				"id": "stylus",
+				"aliases": [
+					"styl",
+					"stylus"
+				],
+				"extensions": [
+					".styl"
+				]
+			}
+		]
+	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
 		"compile": "tsc -p ./",
