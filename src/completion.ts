@@ -13,10 +13,16 @@ const sxMatchRegex: RegExp = /className="[\w-]+"/g;
  */
 function provideCompletionItems(
   document: vscode.TextDocument,
-  _position: vscode.Position,
+  position: vscode.Position,
   _token: vscode.CancellationToken,
   _context: vscode.CompletionContext
 ) {
+  const typeText = document
+    .lineAt(position)
+    .text.substring(position.character - 1, position.character);
+  if (typeText !== ".") {
+    return;
+  }
   // 获取当前文件路径
   const filePath: string = document.fileName;
 
@@ -47,6 +53,8 @@ function provideCompletionItems(
         classNames = classNames.concat(result);
       }
     });
+    // 去重
+    classNames = [...new Set(classNames)];
   }
 
   return classNames.map((item: string) => {
