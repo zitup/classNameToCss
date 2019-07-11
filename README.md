@@ -33,3 +33,9 @@ This extension is very very easy to use, there just one step to improve your dev
 * 搜索、安装、输入点，然后与你的同事分享
   
 * Search, Install, Type dot and Share with your colleague
+
+# Contributing  
+
+如果你想体验`CSS Modules`写法的智能提示，欢迎探讨和PR。  
+
+If you want the completion for `CSS Modules`, any type of contribution and discussion is welcome.
