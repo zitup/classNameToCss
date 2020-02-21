@@ -2,8 +2,8 @@ import * as fs from "fs";
 import * as vscode from "vscode";
 
 const extensionArray: string[] = ["htm", "html", "jsx", "tsx"];
-const htmMatchRegex: RegExp = /class="[\w-]+"/g;
-const sxMatchRegex: RegExp = /className="[\w-]+"/g;
+const htmMatchRegex: RegExp = /class="[\w- ]+"/g;
+const sxMatchRegex: RegExp = /className="[\w- ]+"/g;
 
 /**
  * @param {*} document
@@ -30,10 +30,7 @@ function provideCompletionItems(
   // 在vue文件触发
   if (document.languageId === "vue") {
     // 读取当前文件
-    const result = getClass(filePath);
-    if (result) {
-      classNames = result;
-    }
+    classNames = getClass(filePath);
   }
   // 在css类文件触发
   else {
@@ -48,23 +45,28 @@ function provideCompletionItems(
     // 读取目标文件，获取class
     target.forEach((item: string) => {
       const filePath: string = `${dir}/${item}`;
-      const result = getClass(filePath);
-      if (result) {
-        classNames = classNames.concat(result);
-      }
+      classNames = getClass(filePath);
     });
-    // 去重
-    classNames = [...new Set(classNames)];
   }
 
-  return classNames.map((item: string) => {
-    const className: string = item.split("=")[1];
+  classNames = classNames.reduce((arr, ele) => {
+    const className: string = ele.split("=")[1];
     // 去掉引号
     const field: string = className.slice(1, className.length - 1);
+    // 处理多class情况
+    if (ele.includes(" ")) {
+      return arr.concat(field.split(" "));
+    } else {
+      arr.push(field);
+      return arr;
+    }
+  }, [] as string[]);
+
+  return classNames.map((ele: string) => {
     return new vscode.CompletionItem(
       // 提示内容要带上触发字符，https://github.com/Microsoft/vscode/issues/71662
-      `.${field}`,
-      vscode.CompletionItemKind.Field
+      `.${ele}`,
+      vscode.CompletionItemKind.Text
     );
   });
 }
@@ -84,7 +86,7 @@ function getClass(path: string) {
   if (path.includes("sx")) {
     result = data.match(sxMatchRegex);
   }
-  return result;
+  return result || [];
 }
 
 /**

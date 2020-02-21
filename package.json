@@ -1,84 +1,84 @@
 {
-	"name": "classnametocss",
-	"displayName": "className Completion in CSS",
-	"description": "css/less/scss className IntelliSense from html/jsx/tsx",
-	"publisher": "zitup",
-	"version": "0.0.3",
-	"icon": "icon.jpg",
-	"engines": {
-		"vscode": "^1.33.0"
-	},
-	"repository": {
-		"url": "https://github.com/zytjs/classNameToCss"
-	},
-	"categories": [
-		"Programming Languages",
-		"Other"
-	],
-	"keywords": [
-		"IntelliSense",
-		"completion",
-		"autocomplete",
-		"class",
-		"css",
-		"less",
-		"sass",
-		"scss",
-		"stylus",
-		"html",
-		"jsx",
-		"tsx",
-		"vue",
-		"classtocss",
-		"class to css",
-		"classnametocss",
-		"classname to css"
-	],
-	"activationEvents": [
-		"onLanguage:css",
-		"onLanguage:less",
-		"onLanguage:scss",
-		"onLanguage:sass",
-		"onLanguage:stylus",
-		"onLanguage:vue"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"languages": [
-			{
-				"id": "vue",
-				"aliases": [
-					"Vue",
-					"vue"
-				],
-				"extensions": [
-					".vue"
-				]
-			},
-			{
-				"id": "stylus",
-				"aliases": [
-					"styl",
-					"stylus"
-				],
-				"extensions": [
-					".styl"
-				]
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
-	},
-	"devDependencies": {
-		"typescript": "^3.3.1",
-		"vscode": "^1.1.28",
-		"tslint": "^5.12.1",
-		"@types/node": "^10.12.21",
-		"@types/mocha": "^2.2.42"
-	}
+  "name": "classnametocss",
+  "displayName": "className Completion in CSS",
+  "description": "css/less/scss className IntelliSense from html/jsx/tsx",
+  "publisher": "zitup",
+  "version": "0.0.4",
+  "icon": "icon.jpg",
+  "engines": {
+    "vscode": "^1.42.0"
+  },
+  "repository": {
+    "url": "https://github.com/zytjs/classNameToCss"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "IntelliSense",
+    "completion",
+    "autocomplete",
+    "class",
+    "css",
+    "less",
+    "sass",
+    "scss",
+    "stylus",
+    "html",
+    "jsx",
+    "tsx",
+    "vue",
+    "classtocss",
+    "class to css",
+    "classnametocss",
+    "classname to css"
+  ],
+  "activationEvents": [
+    "onLanguage:css",
+    "onLanguage:less",
+    "onLanguage:scss",
+    "onLanguage:sass",
+    "onLanguage:stylus",
+    "onLanguage:vue"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "vue",
+        "aliases": [
+          "Vue",
+          "vue"
+        ],
+        "extensions": [
+          ".vue"
+        ]
+      },
+      {
+        "id": "stylus",
+        "aliases": [
+          "styl",
+          "stylus"
+        ],
+        "extensions": [
+          ".styl"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28",
+    "tslint": "^5.12.1",
+    "@types/node": "^10.12.21",
+    "@types/mocha": "^2.2.42"
+  }
 }
