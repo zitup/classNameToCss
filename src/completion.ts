@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as vscode from "vscode";
 
-const extensionArray: string[] = ["htm", "html", "jsx", "tsx"];
+const extensionArray: string[] = ["htm", "html", "jsx", "tsx", "js"];
 const htmMatchRegex: RegExp = /class="[\w- ]+"/g;
 const sxMatchRegex: RegExp = /className="[\w- ]+"/g;
 
