@@ -65,17 +65,14 @@ function provideCompletionItems(
   return classNames.map((ele: string) => {
     return new vscode.CompletionItem(
       // 提示内容要带上触发字符，https://github.com/Microsoft/vscode/issues/71662
-      `.${ele}`,
+      document.languageId === "vue" ? `${ele}` : `.${ele}`,
       vscode.CompletionItemKind.Text
     );
   });
 }
 
 function getClass(path: string) {
-  const data: string = fs
-    .readFileSync(path, "utf8")
-    .split("\n")
-    .join("");
+  const data: string = fs.readFileSync(path, "utf8").split("\n").join("");
 
   let result;
   // htm/html/vue-->class
@@ -97,7 +94,7 @@ function resolveCompletionItem() {
   return null;
 }
 
-export default function(context: vscode.ExtensionContext) {
+export default function (context: vscode.ExtensionContext) {
   // 注册代码建议提示，只有当按下“.”时才触发
   context.subscriptions.push(
     vscode.languages.registerCompletionItemProvider(
@@ -107,11 +104,11 @@ export default function(context: vscode.ExtensionContext) {
         { scheme: "file", language: "scss" },
         { scheme: "file", language: "sass" },
         { scheme: "file", language: "stylus" },
-        { scheme: "file", language: "vue" }
+        { scheme: "file", language: "vue" },
       ],
       {
         provideCompletionItems,
-        resolveCompletionItem
+        resolveCompletionItem,
       },
       "."
     )
