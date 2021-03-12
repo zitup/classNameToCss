@@ -1,10 +1,21 @@
 # Change Log
 
+## [0.0.5] - 2021-03-13
+
+~~### Added~~
+
+~~- class name jump to definition~~
+
+### Changed
+
+- upgrade `typescript`
+- `tslint` to `eslint`
+
 ## [0.0.4] - 2020-02-22
 
 ### Added
 
-- support multi classname, such as `class="name1 name2"`
+- support multi class name, such as `class="name1 name2"`
 
 ## [0.0.3] - 2019-06-03
 
@@ -26,6 +37,7 @@
 
 - support htm/html/jsx/tsx
 
+[0.0.5]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.5
 [0.0.4]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.4
 [0.0.3]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.3
 [0.0.2]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.2

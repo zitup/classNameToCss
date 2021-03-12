@@ -2,8 +2,8 @@ import * as fs from "fs";
 import * as vscode from "vscode";
 
 const extensionArray: string[] = ["htm", "html", "jsx", "tsx"];
-const htmMatchRegex: RegExp = /class="[\w- ]+"/g;
-const sxMatchRegex: RegExp = /className="[\w- ]+"/g;
+const htmMatchRegex = /class="[\w- ]+"/g;
+const sxMatchRegex = /className="[\w- ]+"/g;
 
 /**
  * @param {*} document
@@ -14,8 +14,6 @@ const sxMatchRegex: RegExp = /className="[\w- ]+"/g;
 function provideCompletionItems(
   document: vscode.TextDocument,
   position: vscode.Position,
-  _token: vscode.CancellationToken,
-  _context: vscode.CompletionContext
 ) {
   const typeText = document
     .lineAt(position)
@@ -23,37 +21,36 @@ function provideCompletionItems(
   if (typeText !== ".") {
     return;
   }
-  // 获取当前文件路径
+  // current file path
   const filePath: string = document.fileName;
 
   let classNames: string[] = [];
-  // 在vue文件触发
+  // vue
   if (document.languageId === "vue") {
-    // 读取当前文件
     classNames = getClass(filePath);
   }
-  // 在css类文件触发
+  // css-like file
   else {
-    // 获取当前文件夹路径
+    // current dir path
     const dir: string = filePath.slice(0, filePath.lastIndexOf("/"));
-    // 读取当前文件夹下的文件名
+    // current dir files
     const files: string[] = fs.readdirSync(dir);
-    // 筛选目标文件
+    // filter target file
     const target: string[] = files.filter((item: string) =>
       extensionArray.includes(item.split(".")[1])
     );
-    // 读取目标文件，获取class
+    // get target files class name
     target.forEach((item: string) => {
-      const filePath: string = `${dir}/${item}`;
+      const filePath = `${dir}/${item}`;
       classNames = getClass(filePath);
     });
   }
 
   classNames = classNames.reduce((arr, ele) => {
     const className: string = ele.split("=")[1];
-    // 去掉引号
+    // remove the quotes
     const field: string = className.slice(1, className.length - 1);
-    // 处理多class情况
+    // handle multi class name
     if (ele.includes(" ")) {
       return arr.concat(field.split(" "));
     } else {
@@ -64,7 +61,8 @@ function provideCompletionItems(
 
   return classNames.map((ele: string) => {
     return new vscode.CompletionItem(
-      // 提示内容要带上触发字符，https://github.com/Microsoft/vscode/issues/71662
+      // intelliSense content need include trigger operator
+      // https://github.com/Microsoft/vscode/issues/71662
       document.languageId === "vue" ? `${ele}` : `.${ele}`,
       vscode.CompletionItemKind.Text
     );
@@ -75,11 +73,11 @@ function getClass(path: string) {
   const data: string = fs.readFileSync(path, "utf8").split("\n").join("");
 
   let result;
-  // htm/html/vue-->class
+  // htm/html/vue use class
   if (path.includes("htm") || path.includes("vue")) {
     result = data.match(htmMatchRegex);
   }
-  // tsx/jsx-->className
+  // tsx/jsx use className
   if (path.includes("sx")) {
     result = data.match(sxMatchRegex);
   }
@@ -94,8 +92,8 @@ function resolveCompletionItem() {
   return null;
 }
 
-export default function (context: vscode.ExtensionContext) {
-  // 注册代码建议提示，只有当按下“.”时才触发
+export default function (context: vscode.ExtensionContext): void {
+  // trigger only when type dot
   context.subscriptions.push(
     vscode.languages.registerCompletionItemProvider(
       [

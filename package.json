@@ -3,7 +3,7 @@
   "displayName": "className Completion in CSS",
   "description": "css/less/scss className IntelliSense from html/jsx/tsx",
   "publisher": "zitup",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "icon": "icon.jpg",
   "engines": {
     "vscode": "^1.42.0"
@@ -25,7 +25,6 @@
     "sass",
     "scss",
     "stylus",
-    "html",
     "jsx",
     "tsx",
     "vue",
@@ -71,14 +70,23 @@
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test",
+    "lint": "eslint src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
   },
   "devDependencies": {
-    "typescript": "^3.3.1",
-    "vscode": "^1.1.28",
-    "tslint": "^5.12.1",
+    "@types/mocha": "^2.2.42",
     "@types/node": "^10.12.21",
-    "@types/mocha": "^2.2.42"
+    "@types/vscode": "^1.54.0",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "eslint": "^7.21.0",
+    "husky": "4.3.8",
+    "typescript": "^4.2.3",
+    "vscode": "^1.1.37"
   }
 }
