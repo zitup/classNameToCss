@@ -2,8 +2,8 @@ import * as fs from "fs";
 import * as vscode from "vscode";
 
 const extensionArray: string[] = ["htm", "html", "jsx", "tsx"];
-const htmMatchRegex = /class="[\w- ]+"/g;
-const sxMatchRegex = /className="[\w- ]+"/g;
+const htmMatchRegex = /class=["'][\w- ]+["']/g;
+const sxMatchRegex = /className=["'][\w- ]+["']/g;
 
 /**
  * @param {*} document
@@ -42,7 +42,8 @@ function provideCompletionItems(
     // get target files class name
     target.forEach((item: string) => {
       const filePath = `${dir}/${item}`;
-      classNames = getClass(filePath);
+      const fileClass = getClass(filePath);
+      classNames = classNames.concat(fileClass);
     });
   }
 

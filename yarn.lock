@@ -91,10 +91,10 @@
   resolved "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
-"@types/vscode@^1.54.0":
-  version "1.54.0"
-  resolved "https://registry.npmjs.org/@types/vscode/-/vscode-1.54.0.tgz#d28e3b3614054b2d6543c29412f60a986cabd9bb"
-  integrity sha512-sHHw9HG4bTrnKhLGgmEiOS88OLO/2RQytUN4COX9Djv81zc0FSZsSiYaVyjNidDzUSpXsySKBkZ31lk2/FbdCg==
+"@types/vscode@^1.42.0":
+  version "1.59.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/vscode/-/vscode-1.59.0.tgz#11c93f5016926126bf30b47b9ece3bd617eeef31"
+  integrity sha512-Zg38rusx2nU6gy6QdF7v4iqgxNfxzlBlDhrRCjOiPQp+sfaNrp3f9J6OHIhpGNN1oOAca4+9Hq0+8u3jwzPMlQ==
 
 "@typescript-eslint/eslint-plugin@^4.17.0":
   version "4.17.0"

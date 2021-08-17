@@ -1,10 +1,13 @@
 # Change Log
 
+## [0.0.6] - 2021-08-17
+
+### Fixed
+
+- support single quotes className
+- support multi file className
+
 ## [0.0.5] - 2021-03-13
-
-~~### Added~~
-
-~~- class name jump to definition~~
 
 ### Changed
 
@@ -37,6 +40,7 @@
 
 - support htm/html/jsx/tsx
 
+[0.0.6]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.6
 [0.0.5]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.5
 [0.0.4]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.4
 [0.0.3]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.3
