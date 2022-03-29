@@ -60,6 +60,9 @@ function provideCompletionItems(
     }
   }, [] as string[]);
 
+  // de-duplication
+  classNames = [...new Set(classNames)];
+
   return classNames.map((ele: string) => {
     return new vscode.CompletionItem(
       // intelliSense content need include trigger operator
