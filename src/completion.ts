@@ -32,7 +32,7 @@ function provideCompletionItems(
   // css-like file
   else {
     // current dir path
-    const dir: string = filePath.slice(0, filePath.lastIndexOf("/"));
+    const dir: string = filePath.slice(0, filePath.lastIndexOf("\\"));
     // current dir files
     const files: string[] = fs.readdirSync(dir);
     // filter target file
@@ -41,7 +41,7 @@ function provideCompletionItems(
     );
     // get target files class name
     target.forEach((item: string) => {
-      const filePath = `${dir}/${item}`;
+      const filePath = `${dir}\\${item}`;
       const fileClass = getClass(filePath);
       classNames = classNames.concat(fileClass);
     });
