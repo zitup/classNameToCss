@@ -1,6 +1,6 @@
 import * as fs from "fs";
+import * as path from "path";
 import * as vscode from "vscode";
-const path = require('path');
 
 const extensionArray: string[] = ["htm", "html", "jsx", "tsx"];
 const htmMatchRegex = /class=["'][\w- ]+["']/g;
