@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.0.7] - 2023-03-09
+
+### Fixed
+
+- support Windows
+
 ## [0.0.6] - 2021-08-17
 
 ### Fixed
@@ -40,6 +46,7 @@
 
 - support htm/html/jsx/tsx
 
+[0.0.7]: https://github.com/zitup/classNameToCss/releases/tag/0.0.7
 [0.0.6]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.6
 [0.0.5]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.5
 [0.0.4]: https://github.com/zytjs/classNameToCss/releases/tag/0.0.4

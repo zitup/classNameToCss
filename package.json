@@ -3,7 +3,7 @@
   "displayName": "className Completion in CSS",
   "description": "css/less/scss className IntelliSense from html/jsx/tsx",
   "publisher": "zitup",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "icon": "icon.jpg",
   "engines": {
     "vscode": "^1.42.0"
