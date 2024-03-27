@@ -1,5 +1,7 @@
 # IntelliSense for HTML classNames in CSS
 
+![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/zitup.classnametocss)
+
 [简体中文](./README-zh_CN.md)
 
 A Visual Studio Code extension that provides HTML class name completion for the CSS based on the definitions found in the same directory.
